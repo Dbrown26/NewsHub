@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Articles in {{ category }}</h1>
+
+{% if articles %}
+    <ul>
+        {% for article in articles %}
+        <li>
+            <a href="{{ article.url }}" target="_blank">{{ article.title }}</a>
+            <p>{{ article.description }}</p>
+            <small>Published At: {{ article.publishedAt }}</small>
+        </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No articles available for this category.</p>
+{% endif %}
+
+<a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+{% endblock %}
+

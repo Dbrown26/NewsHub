@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Welcome to the Dashboard</h1>
+<p>Select a category:</p>
+<ul>
+    {% for category in categories %}
+    <li><a href="{{ url_for('category_feed', category=category) }}">{{ category }}</a></li>
+    {% endfor %}
+</ul>
+<a href="{{ url_for('logout') }}">Logout</a>
+{% endblock %}
